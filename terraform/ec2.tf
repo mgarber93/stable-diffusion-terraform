@@ -22,6 +22,7 @@ resource "aws_spot_instance_request" "stable_diffusion" {
   spot_type                   = "one-time"
   wait_for_fulfillment        = true
   associate_public_ip_address = true
+  key_name = aws_key_pair.ssh.key_name
 
   root_block_device {
     volume_type           = "gp2"
