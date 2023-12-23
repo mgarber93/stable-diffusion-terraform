@@ -41,7 +41,7 @@ resource "aws_spot_instance_request" "stable_diffusion" {
 
   user_data = <<EOF
 #!/usr/bin/env bash
-su - ubuntu -c "cd /home/ubuntu && git clone https://github.com/mgarber93/stable-diffusion-terraform"
+su - ubuntu -c "cd /home/ubuntu && git clone https://github.com/mgarber93/stable-diffusion-terraform.git"
 su - ubuntu -c "/home/ubuntu/stable-diffusion-terraform/scripts/setup.sh"
 EOF
 }
