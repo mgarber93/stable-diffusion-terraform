@@ -115,7 +115,7 @@ Get your IP address:
 curl https://icanhazip.com
 ```
 
-Then edit `terraform/vars.tf`, and update the following variables:
+Then edit `terraform/vars.tfvars`, and update the following variables:
 
 * AWS_REGION
 * AWS_KEY_PAIR
