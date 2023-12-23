@@ -11,13 +11,12 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  owners = ["099720109477"]
+  owners = ["099720109477"] # Canonical
 }
 
 resource "aws_spot_instance_request" "stable_diffusion" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.EC2_INSTANCE_TYPE
-  key_name                    = var.AWS_KEY_PAIR
   spot_price                  = var.EC2_INSTANCE_SPOT_PRICE
   subnet_id                   = var.SUBNET_ID
   spot_type                   = "one-time"
@@ -41,7 +40,7 @@ resource "aws_spot_instance_request" "stable_diffusion" {
 
   user_data = <<EOF
 #!/usr/bin/env bash
-su - ubuntu -c "cd /home/ubuntu && git clone https://github.com/ashleykleynhans/stable-diffusion-terraform.git"
+su - ubuntu -c "cd /home/ubuntu && git clone https://github.com/mgarber93/stable-diffusion-terraform"
 su - ubuntu -c "/home/ubuntu/stable-diffusion-terraform/scripts/setup.sh"
 EOF
 }
