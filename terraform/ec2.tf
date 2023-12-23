@@ -14,6 +14,8 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+
+
 resource "aws_spot_instance_request" "stable_diffusion" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.EC2_INSTANCE_TYPE
@@ -22,7 +24,7 @@ resource "aws_spot_instance_request" "stable_diffusion" {
   spot_type                   = "one-time"
   wait_for_fulfillment        = true
   associate_public_ip_address = true
-  key_name = aws_key_pair.ssh.key_name
+  key_name = aws_key_pair.ssh-ed25519.key_name
 
   root_block_device {
     volume_type           = "gp2"
