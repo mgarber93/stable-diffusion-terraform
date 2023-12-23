@@ -2,7 +2,7 @@ variable "AWS_ACCESS_KEY" {}
 variable "AWS_SECRET_KEY" {}
 
 variable "AWS_REGION" {
-  default = "eu-west-1"
+  default = "us-east-1"
 }
 
 variable "AWS_KEY_PAIR" {
@@ -22,14 +22,14 @@ variable "EC2_INSTANCE_DISK_SIZE" {
 }
 
 variable "VPC_ID" {
-  default = "vpc-xxxxxxxxxxxxxxxx"
 }
 
 # The subnet ID must be in the same availability zone as above
 variable "SUBNET_ID" {
-  default = "subnet-xxxxxxxxxxxxxxxxx"
 }
 
 variable "MY_IP_ADDRESS" {
-  default = "192.168.1.1"
+}
+
+variable "PUBLIC_KEY" {
 }
